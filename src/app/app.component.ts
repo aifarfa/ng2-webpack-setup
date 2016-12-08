@@ -18,7 +18,8 @@ import { Component } from '@angular/core'
             <ul class="list-group users-list">
               <li class="list-group-item"
                 *ngFor="let user of users"
-                (click)="selectUser(user)">
+                (click)="selectUser(user)"
+                [class.active]="user === activeUser">
                 {{user.name}} ({{user.username}})</li>
             </ul>
           </div>
@@ -27,6 +28,10 @@ import { Component } from '@angular/core'
         <div class="col-sm-8">
           <div class="jumbotron" *ngIf="activeUser">
             <h2>{{activeUser.name}} <small>{{activeUser.username}}</small></h2>
+          </div>
+          <div class="jumbotron" *ngIf="!activeUser">
+            <h2>Choose a user.</h2>
+            <span class="glyphicon glyphicon-hand-left"></span>
           </div>
         </div>
 
@@ -37,11 +42,11 @@ import { Component } from '@angular/core'
     </footer>
   `,
     styles: [`
-    .jumbotron {
-      box-shadow: 0 2px 0 rgba(0, 0, 0, .2);
+    .jumbotron .glyphicon {
+      font-size: 80px;
     }
     .users-list > .list-group-item {
-      cursor: pointer
+      cursor: pointer;
     }
   `]
 })
