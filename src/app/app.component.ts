@@ -1,16 +1,29 @@
-import {Component} from '@angular/core'
+import { Component } from '@angular/core'
+import { User } from './models/user'
 
 @Component({
   selector: 'my-app',
-  template: `
-    <div class="jumbotron">
-      <h2>Getting started.</h2>
-    </div>
-  `,
-  styles: [`
-    .jumbotron {
-      box-shadow: 0 2px 0 rgba(0, 0, 0, .2);
-    }
-  `]
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
 })
-export class AppComponent {}
+
+export class AppComponent {
+  activeUser: User;
+
+  users: User[] = [{
+    id: 777, name: 'Far',
+    username: 'aifarfa'
+  }, {
+    id: 22,
+    name: 'John Doe',
+    username: 'john.d'
+  }]
+
+  selectUser(user: User) {
+    this.activeUser = user;
+  }
+
+  onUserCreated(e) {
+    this.users = this.users.concat([e.user]);
+  }
+}
