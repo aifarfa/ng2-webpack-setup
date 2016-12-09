@@ -2,7 +2,7 @@ var webpack = require('webpack')
 var path = require('path')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
-var BUILD_DIR = path.resolve('./app')
+var BUILD_DIR = path.resolve('./src/app')
 
 module.exports = {
   entry: {
