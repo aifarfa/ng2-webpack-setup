@@ -1,0 +1,6 @@
+.jumbotron .glyphicon {
+  font-size: 80px;
+}
+.users-list > .list-group-item {
+  cursor: pointer;
+}
